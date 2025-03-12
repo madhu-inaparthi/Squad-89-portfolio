@@ -640,3 +640,39 @@
 .bot::before {
   display: none; /* Remove the tail */
 }
+@media (max-width: 480px) {
+  /* Make the chat window nearly full-width with horizontal margins */
+  .chat-bot-window {
+    left: 10px;
+    right: 10px;
+    bottom: 80px;
+    width: auto;
+    padding: 12px;
+  }
+
+  /* Stack header items for extra vertical spacing */
+  .chat-bot-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  /* Ensure messages area doesn't feel cramped */
+  .chat-bot-messages {
+    max-height: 300px; /* Adjust if needed */
+  }
+
+  /* Rearrange input area into a column */
+  .chat-bot-input {
+    flex-direction: column;
+  }
+
+  .chat-bot-input input.retro-input {
+    width: 100%;
+    margin-bottom: 8px;
+  }
+
+  .chat-bot-input .send-button {
+    width: 100%;
+  }
+}

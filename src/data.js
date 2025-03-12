@@ -18,7 +18,7 @@ export const mentors = [
           image: "https://ik.imagekit.io/gkzlyyyrg/Student%20photos/Students/abs51.jpg?updatedAt=1741582390033",
           github: "https://github.com/chethan-gen",
           linkedin: "https://www.linkedin.com/in/chethan-regala-9b671a34a/",
-          midDescription: "I am Chethan, an 18-year-old frontend developer with a passion for creating intuitive and visually appealing user interfaces. In addition to my development skills, I have a strong interest in video editing, allowing me to bring creative and dynamic elements to digital content. My combined expertise ensures a unique approach to problem-solving and content creation."
+          midDescription: "I am Chethan, an 18-year-old frontend developer with a passion for creating intuitive and visually appealing user interfaces. In addition to my development skills, I have a strong interest in video editing, My combined expertise ensures a unique approach to problem-solving and content creation."
       },
       {
           name: "Neo",

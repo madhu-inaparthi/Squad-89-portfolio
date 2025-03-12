@@ -24,7 +24,7 @@ The Campus Portfolio is a digital platform representing Godavari Global Universi
 - **Mentors & Faculty:** Profiles of professors and staff with their achievements.
 - **Student Highlights:** Showcasing projects, research, and success stories.
 - **Campus Journey:** Timeline with major milestones & events.
-- **Explore More (After Sign-in):** Exclusive content for registered users.
+- **Explore Our Projects:** Exclusive content for registered users.
 - **Contact Us:** Inquiry form and campus location.
 
 #### Advanced Features
@@ -101,6 +101,7 @@ Kalvium offers an advanced B.Tech Computer Science Engineering (CSE) program des
 - **In-Demand Skills:** Focus on modern technologies like AI, Machine Learning, and Software Product Engineering.
 - **Real-World Experience:** Opportunities for internships and hands-on projects from the second year.
 - **Industry Collaboration:** Curriculum designed by experts from leading tech companies.  
+
 For more details, visit the Kalvium website.
 
 #### Collaboration with Godavari Global University
@@ -108,6 +109,7 @@ Godavari Global University (GGU) has partnered with Kalvium to enhance its CSE c
 - **Integrated Curriculum:** Incorporating Kalvium’s industry-aligned courses into GGU’s academic offerings.
 - **Placement Opportunities:** Access to top-tier companies through Kalvium’s network.
 - **Centers of Excellence (CoEs):** Establishment of specialized centers focusing on emerging technologies.  
+
 For more information, refer to GGU’s placement drives and MoU collaborations.
 
 #### Implementation in Campus Portfolio
@@ -115,6 +117,21 @@ To showcase this collaboration:
 - **Dedicated Section:** Create a page detailing the Kalvium-GGU partnership, highlighting program benefits and student success stories.
 - **Dynamic Content:** Use the CMS to update information about upcoming events, workshops, and news related to the collaboration.
 - **Student Testimonials:** Feature experiences of students enrolled in the Kalvium-powered CSE program.
+
+### Developers
+- **Madhu & Akhil** – Equally contributed as the major developers on the project.
+- **Hari** – Figma Designer (UI/UX Design)
+
+### Figma Designs & Assets
+For a comprehensive view of the design process and UI components, refer to the Figma project file. Below you can find the Figma project link and sample design screenshots:
+
+- **Figma Project Link:** [View Figma Designs for mobile](https://www.figma.com/design/RhR0fsgMrTUxews3NjT9Lw/SQUAD-89-PORTFOLIO-MOBILE?node-id=0-1&t=QNRhAZ83OFCn6w5K-1)
+**Figma Project Link:** [View Figma Designs for desktop](https://www.figma.com/design/YDYiZ8829IYonLf2skRx06/PORTFOLIO_SQUAD_89?t=QNRhAZ83OFCn6w5K-1)
+- **Design Screenshots:**
+  - ![Figma Screenshot 1](./path/to/design1.png)
+  - ![Figma Screenshot 2](./path/to/design2.png)
+
+*Replace the placeholder URL and image paths with your actual Figma link and asset locations.*
 
 ### 7️⃣ Conclusion
 The Campus Portfolio is a modern and interactive website that highlights mentors, students, the campus journey, and exclusive content. With a sleek UI, authentication system, and CMS integration, it creates a dynamic and engaging platform for the campus community.

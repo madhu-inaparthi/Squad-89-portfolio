@@ -1,7 +1,6 @@
 import React from 'react';
 import { Github, Linkedin } from 'lucide-react';
 
-
 const MemberCard = ({ member, index, className }) => {
   const defaultDescriptions = [
     "Innovative coder who loves breaking boundaries.",
@@ -16,7 +15,7 @@ const MemberCard = ({ member, index, className }) => {
         group relative bg-[#111] rounded-lg overflow-hidden
         transform hover:scale-105 transition-transform duration-300
         shadow-lg ring-2 ring-transparent hover:ring-[#e50914] hover:shadow-2xl
-        ${className} w-64
+        ${className} w-full md:w-64 mx-auto
       `}
     >
       {/* Image Section */}
@@ -95,36 +94,35 @@ const MemberCard = ({ member, index, className }) => {
 
       {/* Internal CSS for Stranger Things Glow */}
       <style jsx>{`
-  .stranger-s89 {
-    font-family: 'Poppins', sans-serif; /* Desired font */
-    font-size: 20px; /* Adjusted size */
-    color: transparent; /* Hollow by default */
-    -webkit-text-stroke: 1px #ff0000; /* Red outline */
-    transition: opacity 0.3s ease, transform 0.3s ease; /* Smooth transition */
-    animation: stranger-glow 3s infinite ease-in-out;
-  }
+        .stranger-s89 {
+          font-family: 'Poppins', sans-serif;
+          font-size: 20px;
+          color: transparent;
+          -webkit-text-stroke: 1px #ff0000;
+          transition: opacity 0.3s ease, transform 0.3s ease;
+          animation: stranger-glow 3s infinite ease-in-out;
+        }
 
-  .group:hover .stranger-s89 {
-    opacity: 0; /* Hides the text */
-    transform: scale(0.8); /* Optional: Slightly shrinks the text */
-  }
+        .group:hover .stranger-s89 {
+          opacity: 0;
+          transform: scale(0.8);
+        }
 
-  @keyframes stranger-glow {
-    0% {
-      color: transparent; /* Hollow */
-      -webkit-text-stroke: 1px #ff0000; /* Red outline */
-    }
-    50% {
-      color: #ff0000; /* Fills with red */
-      -webkit-text-stroke: 0px; /* Removes outline when filled */
-    }
-    100% {
-      color: transparent; /* Back to hollow */
-      -webkit-text-stroke: 1px #ff0000; /* Restores outline */
-    }
-  }
-`}</style>
-
+        @keyframes stranger-glow {
+          0% {
+            color: transparent;
+            -webkit-text-stroke: 1px #ff0000;
+          }
+          50% {
+            color: #ff0000;
+            -webkit-text-stroke: 0px;
+          }
+          100% {
+            color: transparent;
+            -webkit-text-stroke: 1px #ff0000;
+          }
+        }
+      `}</style>
     </div>
   );
 };

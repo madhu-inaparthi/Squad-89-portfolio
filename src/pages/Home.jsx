@@ -30,7 +30,9 @@ const Home = () => {
     <div className="min-h-screen bg-black text-white relative">
       <div className={`transition-opacity duration-1000 ${showIntro ? 'opacity-0' : 'opacity-100'}`}>
         <div className="upside-down-bg" />
+        
         <FloatingParticles />
+        <FloatingChatBot />
         <Header />
         <div id="home" className="relative h-screen flex items-center justify-center overflow-hidden">
           <div className="relative z-10 text-center px-4 mt-16">
@@ -40,7 +42,7 @@ const Home = () => {
             <p className="content-text text-xl text-gray-300 mb-8 fade-in">
               Where Technology Meets the Extraordinary
             </p>
-            <FloatingChatBot />
+            
             <div className="flex justify-center space-x-6 mb-12">
               <Code className="w-12 h-12 text-[#e50914] glow-icon beat-animation" />
               <Brain className="w-12 h-12 text-[#e50914] glow-icon beat-animation" />

@@ -27,9 +27,11 @@ function App() {
     
     // Background audio logic (if needed)
     if (audioRef.current) {
-      audioRef.current.volume = 0.01;
-      audioRef.current.currentTime = 17;
-      audioRef.current.play().catch(error => {
+      audioRef.current.volume = 0.05; // Set initial volume (adjust as needed)
+      audioRef.current.currentTime = 17; // Start the audio from the 17th second (adjust as needed)
+      audioRef.current.play().then(() => {
+        console.log("Background music started playing.");
+      }).catch(error => {
         console.error("Error playing audio:", error);
       });
     }
@@ -46,7 +48,7 @@ function App() {
       <div>
         <Header />
         {/* Background audio (if you have that file ready) */}
-       <audio ref={audioRef} id="background-music.mp3.mp3" src={backgroundMusic} loop autoPlay /> 
+        <audio ref={audioRef} id="background-music.mp3" src={backgroundMusic} loop autoPlay /> 
         {showPreloader ? (
           // Display the intro video (preloader)
           <Preloader onEnded={handlePreloaderEnded} />
@@ -60,7 +62,7 @@ function App() {
             <Route path="/contact" element={<ContactPage />} />
             <Route path="/learn-more" element={<LearnMore />} />
             <Route path="/projects" element={<Projects />} />
-            <Route path="/memories" element={<Memories />} />  // Add this route for the memories page  // Add this route for the memories page  // Add this route for the memories page  // Add this route for the memories page  // Add this route for the memories page  // Add this route for the memories page  // Add this route for the memories page  // Add this route for the memories page  // Add this route for
+            <Route path="/memories" element={<Memories />} />  // Add this route for the memories page  // Add this route for the memories page  // Add this route for the memories page  // Add this route for the memories page  // Add this route for the memories page  // Add this route for
           </Routes>
         )}
       </div>
