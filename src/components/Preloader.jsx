@@ -1,7 +1,7 @@
 // src/components/Preloader.jsx
 import React from 'react';
 import preloaderVideo from '../pages/preloader.mp4';
-import './preloader.css'
+import './Preloader.css'
 
 const Preloader = ({ onEnded }) => {
   return (
