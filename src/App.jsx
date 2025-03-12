@@ -1,17 +1,17 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import Home from './Pages/Home';
-import Journey from './Pages/Journey';
-import Guides from './Pages/Guides';
-import Party from './pages/Party';
-import ContactPage from './pages/contact-us';
-import LearnMore from './pages/LearnMore';
-import Projects from './pages/projects'; 
-import Header from './components/Header';
-import Preloader from './components/Preloader';
+import Home from './Pages/Home.jsx';
+import Journey from './Pages/Journey.jsx';
+import Guides from './Pages/Guides.jsx';
+import Party from './pages/Party.jsx';
+import ContactPage from './pages/contact-us.jsx';
+import LearnMore from './pages/LearnMore.jsx';
+import Projects from './pages/projects.jsx'; 
+import Header from './components/Header.jsx';
+import Preloader from './components/Preloader.jsx';
 import './components/Preloader.css';
 import backgroundMusic from './music/background-music.mp3.mp3'; // Your background audio can be handled similarly if needed
-import Memories from './pages/Memories';
+import Memories from './pages/Memories.jsx';
 
 function App() {
   // showPreloader is true if we haven't played the intro this session.
