@@ -676,3 +676,21 @@
     width: 100%;
   }
 }
+.jupiter-image {
+  position: absolute;        /* Position relative to the parent (e.g., .chat-bot-button) */
+  bottom: 9px;               /* Sits near the bottom of the parent */
+  left: 20%;                 /* Start at the horizontal center of the parent */
+  transform: translateX(-50%); /* Shift further left from center */
+  width: 50px;               /* Set the size as needed (adjust pixels or use % as preferred) */
+  height: auto;              /* Maintain the aspect ratio */
+  animation: beat 1s ease-in-out infinite;
+}
+
+@keyframes beat {
+  0%, 100% {
+    transform: translateX(-80%) translateY(0) scale(1);
+  }
+  50% {
+    transform: translateX(-80%) translateY(-5px) scale(1.1);
+  }
+}

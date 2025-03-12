@@ -55,7 +55,7 @@ const Header = () => {
               to="/guides" 
               className="block text-gray-300 hover:text-[#e50914] transition-colors py-2 px-4 border-b border-gray-700"
             >
-              Guides
+             Mentors
             </Link>
             <Link 
               to="/party" 
