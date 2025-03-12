@@ -57,7 +57,7 @@ function App() {
             <Route path="/journey" element={<Journey />} />
             <Route path="/guides" element={<Guides />} />
             <Route path="/party" element={<Party />} />
-            <Route path="/contact" element={<ContactPage />} />
+            <Route path="/contactpage" element={<ContactPage />} />
             <Route path="/learn-more" element={<LearnMore />} />
             <Route path="/projects" element={<Projects />} />
             <Route path="/memories" element={<Memories />} />  // Add this route for the memories page  // Add this route for the memories page  // Add this route for the memories page  // Add this route for the memories page  // Add this route for the memories page  // Add this route for the memories page  // Add this route for the memories page  // Add this route for the memories page  // Add this route for
