@@ -4,7 +4,7 @@ import Home from './pages/Home';
 import Journey from './pages/Journey';
 import Guides from './pages/Guides';
 import Party from './pages/Party';
-import ContactPage from './pages/contact-us';
+import ContactPage from './pages/ContactPage';
 import LearnMore from './pages/LearnMore';
 import Projects from './pages/Projects'; 
 import Header from './components/Header';
