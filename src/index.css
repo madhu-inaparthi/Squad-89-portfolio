@@ -1,0 +1,280 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: 'BenguiatITCStd';
+  src: url('https://db.onlinewebfonts.com/t/97c4b25dc74e0ab045154e75a8fdd69d.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'ITC Serif Gothic';
+  src: url('https://db.onlinewebfonts.com/t/d2d21b5e7f49149f715fb76fb84b595a.woff2') format('woff2');
+}
+
+@layer base {
+  body {
+    @apply bg-black overflow-x-hidden;
+  }
+}
+
+.stranger-title {
+  font-family: 'BenguiatITCStd', serif;
+  text-shadow: 
+    0 0 10px #e50914,
+    0 0 20px #e50914,
+    0 0 30px #e50914,
+    0 0 40px #e50914;
+}
+
+.content-text {
+  font-family: 'ITC Serif Gothic', serif;
+}
+
+/* Upside Down Animation */
+.upside-down-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.upside-down-bg::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    linear-gradient(to bottom, 
+      rgba(0,0,0,0.8) 0%,
+      rgba(20,20,20,0.5) 50%,
+      rgba(0,0,0,0.8) 100%
+    ),
+    url('https://images.unsplash.com/photo-1518818419601-72c8673f5852?ixlib=rb-1.2.1&auto=format&fit=crop&w=2000&q=80');
+  background-size: cover;
+  background-position: center;
+  transform-origin: 50% 100%;
+  animation: upsideDownPulse 8s ease-in-out infinite;
+}
+
+.upside-down-bg::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(
+    circle at 50% 50%,
+    rgba(229, 9, 20, 0) 0%,
+    rgba(229, 9, 20, 0.1) 70%,
+    rgba(229, 9, 20, 0.3) 100%
+  );
+  animation: glowPulse 4s ease-in-out infinite;
+}
+
+.floating-particles {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.particle {
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  background: rgba(229, 9, 20, 0.5);
+  border-radius: 50%;
+  pointer-events: none;
+  animation: float 8s infinite;
+}
+
+@keyframes upsideDownPulse {
+  0%, 100% {
+    transform: scale(1) rotate3d(1, 0, 0, 0deg);
+  }
+  50% {
+    transform: scale(1.05) rotate3d(1, 0, 0, 2deg);
+  }
+}
+
+@keyframes glowPulse {
+  0%, 100% {
+    opacity: 0.3;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.6;
+    transform: scale(1.2);
+  }
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0) translateX(0) rotate(0deg);
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.8;
+  }
+  100% {
+    transform: translateY(-100vh) translateX(100px) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+@keyframes flicker {
+  0%, 19.999%, 22%, 62.999%, 64%, 64.999%, 70%, 100% {
+    opacity: 1;
+  }
+  20%, 21.999%, 63%, 63.999%, 65%, 69.999% {
+    opacity: 0.33;
+  }
+}
+
+.flicker {
+  animation: flicker 4s linear infinite;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in {
+  animation: fadeIn 1s ease-out forwards;
+}
+
+@keyframes introFade {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.intro-fade {
+  animation: introFade 2s ease-out forwards;
+}
+
+.intro-overlay {
+  background: radial-gradient(circle at center, transparent 0%, black 100%);
+}
+
+/* Enhanced Typography */
+.nav-text {
+  font-family: 'ITC Serif Gothic', serif;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.section-title {
+  font-family: 'BenguiatITCStd', serif;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  text-shadow: 
+    0 0 10px rgba(229, 9, 20, 0.8),
+    0 0 20px rgba(229, 9, 20, 0.4);
+}
+
+.card-title {
+  font-family: 'ITC Serif Gothic', serif;
+  letter-spacing: 1px;
+}
+
+.team-member-container {
+  transition: transform 0.2s ease-in-out;
+}
+
+.team-member-container:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.stranger-bg {
+  background: url('/path/to/your/background-image.jpg') no-repeat center center fixed;
+  background-size: cover;
+}
+
+.neon-text {
+  color: #e50914;
+  text-shadow: 0 0 5px #e50914, 0 0 10px #e50914, 0 0 20px #e50914, 0 0 40px #e50914;
+}
+
+.glow-effect {
+  box-shadow: 0 0 10px #e50914, 0 0 20px #e50914, 0 0 30px #e50914;
+}
+
+.hover\:border-red-500\/50:hover {
+  border-color: rgba(229, 9, 20, 0.5);
+}
+
+.bg-black\/50 {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.transition-all {
+  transition: all 0.3s ease;
+}
+
+.guides-bg {
+  background: 
+    linear-gradient(to bottom, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.5)),
+    url('https://ik.imagekit.io/gkzlyyyrg/Student%20photos/Students/images/WhatsApp%20Image%202025-03-11%20at%2010.29.35_ef0a52cd.jpg?updatedAt=1741669673344') no-repeat center center fixed;
+  background-size: cover;
+}
+
+.footer {
+  border-top: 1px solid rgba(93, 93, 93, 0.5);
+}
+
+.party-bg {
+  background: 
+    linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0)),
+    url('https://wallpapers.com/images/featured/stranger-things-sky-wpgmniytqxorpkh8.jpg') no-repeat center center fixed;
+  background-size: cover;
+}
+
+.learn-more-bg {
+  background: 
+    linear-gradient(to bottom, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+    url('https://i.ytimg.com/vi/TYnbdBhuTlY/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLCyQe0kRv46Rlm86su8QhM7ik7y3Q') no-repeat center center fixed;
+  background-size: cover;
+}
+
+.upside-down {
+  background: 
+    linear-gradient(to bottom, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)),
+    url('https://4kwallpapers.com/images/wallpapers/stranger-things-fan-3440x1440-14372.jpg') no-repeat center center fixed;
+  background-size: cover;
+}
+
+.border-red-900\/30 {
+  border-color: rgba(229, 9, 20, 0.3);
+}
+
+.transition-colors {
+  transition: colors 0.3s ease;
+}
+
+@font-face {
+  font-family: 'qunatico';
+  src: url('./fonts/Qunatico.woff2') format('woff2'),
+       url('./fonts/Qunatico.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}

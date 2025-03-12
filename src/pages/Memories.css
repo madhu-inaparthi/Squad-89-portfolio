@@ -1,0 +1,304 @@
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Creepster&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&display=swap');
+
+/* Global Reset & Body Styling */
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #1b1b1b;
+  color: white;
+  font: 'Dancing Script', cursive;
+}
+
+/* Common Headings */
+h1 {
+  font-size: 30px;
+  color: white;
+}
+
+/* Memories Heading style for both sections */
+.memories-heading {
+  font-size: 3rem;
+  color: #ff0000;
+  text-align: center;
+  font-family: 'Dancing Script', cursive;
+  margin-bottom: 2rem;
+}
+
+/* ------------------------------ */
+/* Memories Section – Accordion Gallery */
+/* ------------------------------ */
+.memories-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem 0;
+}
+
+.memories-container {
+  width: 90vw;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.accordion-gallery {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  height: 70vh;
+  overflow: hidden;
+}
+
+.accordion-gallery .column {
+  flex: 1;
+  position: relative;
+  overflow: hidden;
+  transition: flex 0.5s ease;
+  cursor: pointer;
+}
+
+.accordion-gallery .column:hover {
+  flex: 10;
+}
+
+.accordion-gallery .column img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.accordion-gallery .column:hover img {
+  transform: scale(1.1);
+}
+
+/* ------------------------------ */
+/* University Gallery – Auto-Rotating 3D Slider */
+/* ------------------------------ */
+.university-gallery-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 3rem 0;
+}
+
+.gallery-container {
+  width: 90vw;
+  max-width: 1200px;
+  margin: auto;
+  text-align: center;
+}
+
+.slider-container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: visible;
+  width: 100%;
+  height: auto;
+}
+
+.university-gallery-section .slider {
+  position: relative;
+  margin: 0 auto;
+  width: 400px;
+  height: 500px;
+  transform-style: preserve-3d;
+  transform: perspective(1200px) rotateX(-16deg);
+  animation: autoRun 25s linear infinite;
+  z-index: 2;
+}
+
+@keyframes autoRun {
+  from {
+    transform: perspective(1200px) rotateX(-16deg) rotateY(0deg);
+  }
+  to {
+    transform: perspective(1200px) rotateX(-16deg) rotateY(360deg);
+  }
+}
+
+.university-gallery-section .slider .item {
+  position: absolute;
+  inset: 0;
+  transform:
+    rotateY(calc((var(--position) - 1) * (360 / var(--quantity)) * 1deg))
+    translateZ(320px);
+}
+
+.university-gallery-section .slider .item img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  border-radius: 10px;
+}
+
+.university-gallery-section .slider .item .caption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  padding: 10px;
+  font-size: 1.2rem;
+  text-align: center;
+  font-family: 'Creepster', cursive;
+}
+
+/* ------------------------------ */
+/* Responsive Adjustments */
+/* ------------------------------ */
+
+/* Tablet screens */
+@media screen and (max-width: 1023px) {
+  .accordion-gallery {
+    height: 50vh;
+  }
+
+  .university-gallery-section .slider {
+    width: 120px;
+    height: 200px;
+  }
+
+  .university-gallery-section .slider .item {
+    transform:
+      rotateY(calc((var(--position) - 1) * (360 / var(--quantity)) * 1deg))
+      translateZ(260px);
+  }
+
+  .memories-heading {
+    font-size: 2rem;
+  }
+}
+
+/* Mobile screens */
+@media screen and (max-width: 767px) {
+  .accordion-gallery {
+    flex-direction: column;
+    height: auto;
+  }
+
+  .university-gallery-section .slider {
+    width: 200px;
+    height: 250px;
+  }
+
+  .university-gallery-section .slider .item {
+    transform:
+      rotateY(calc((var(--position) - 1) * (360 / var(--quantity)) * 1deg))
+      translateZ(180px);
+  }
+
+  .memories-heading {
+    font-size: 1.5rem;
+  }
+}
+
+/* ------------------------------ */
+/* Social Sparks Video Section */
+/* ------------------------------ */
+.social-sparks-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem 0;
+}
+
+.social-sparks-container {
+  width: 90%;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.social-sparks-title {
+  font-family: 'Dancing Script', cursive;
+  font-size: 2.5rem;
+  color: #ff0000;
+  text-align: center;
+  margin-bottom: 1.5rem;
+  text-shadow: 0 0 10px #ff0000;
+}
+
+.video-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* New outer container for animated border */
+.video-border-container {
+  position: relative;
+  width: 50%;  /* Adjust as needed */
+  max-width: 500px;
+  margin: 0 auto;
+  border-radius: 10px;
+}
+
+/* Pseudo element creates an animated gradient border around the container */
+.video-border-container::before {
+  content: "";
+  position: absolute;
+  top: -5px;
+  left: -5px;
+  right: -5px;
+  bottom: -5px;
+  border-radius: inherit;
+  background: conic-gradient(
+    from var(--angle),
+    #ff4545,
+    #00ff99,
+    #006aff,
+    #ff0095,
+    #ff4545
+  );
+  z-index: -1;
+  animation: spin 3s linear infinite;
+}
+
+/* Inner container with a solid border matching the background (mask) */
+.video-wrapper {
+  position: relative;
+  border: 5px solid #1b1b1b;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+/* Video itself */
+.video-wrapper video {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 10px;
+}
+
+.video-caption {
+  margin-top: 1rem;
+  text-align: center;
+  font-size: 1rem;
+  color: #ccc;
+  max-width: 80%;
+  margin: auto;
+}
+
+/* ------------------------------ */
+/* Animated Border Keyframes & Custom Property */
+/* ------------------------------ */
+
+@property --angle {
+  syntax: '<angle>';
+  initial-value: 0deg;
+  inherits: false;
+}
+
+@keyframes spin {
+  from {
+    --angle: 0deg;
+  }
+  to {
+    --angle: 360deg;
+  }
+}

@@ -1,0 +1,642 @@
+@import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Benguiat+Bold&display=swap');
+
+.floating-chat-bot {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 1000;
+  font-family: 'VT323', monospace;
+}
+/* --- Jupiter-like Planet Button */
+.chat-bot-button {
+  background: radial-gradient(circle at 40% 40%, #d19929, #d23708, #fc8f00fe);
+  border: none;
+  border-radius: 50%;
+  width: 70px;
+  height: 70px;
+  position: relative;
+  cursor: pointer;
+  overflow: visible; /* Ensures the ring is visible outside the button */
+  box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.3);
+  transition: transform 0.5s ease, opacity 0.5s ease;
+}
+
+/* --- Rotating Ring (DO NOT MODIFY THIS SECTION) --- */
+.chat-bot-button::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 150px;
+  height: 30px;
+  margin-left: -75px;
+  margin-top: -15px;
+  border-radius: 50%;
+  background: 
+    radial-gradient(ellipse at center, transparent 70%, rgba(255,255,255,0.2) 100%),
+    conic-gradient(
+      from 0deg,
+      rgba(255,255,255,0.35) 0deg,
+      rgba(255,255,255,0.15) 45deg,
+      rgba(255,255,255,0.35) 90deg,
+      rgba(255,255,255,0.15) 135deg,
+      rgba(255,255,255,0.35) 180deg,
+      rgba(255,255,255,0.15) 225deg,
+      rgba(255,255,255,0.35) 270deg,
+      rgba(255,255,255,0.15) 315deg,
+      rgba(255,255,255,0.35) 360deg
+    );
+  background-blend-mode: overlay;
+  transform: rotate(25deg);
+  transform-origin: center;
+  animation: jupiter-ring-rotation 10s linear infinite;
+  z-index: -1;
+}
+
+@keyframes jupiter-ring-rotation {
+  from {
+    transform: rotate(25deg);
+  }
+  to {
+    transform: rotate(385deg);
+  }
+}
+
+/* --- Automatic Burst Cycle for the Planet (5s Cycle, 3 bursts) --- */
+.planet-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 40% 40%, #ff0000, #ff3c00fc, #ff7700fe);
+  box-shadow: inset 0 0 10px rgba(0,0,0,0.3);
+  z-index: 1;
+  opacity: 0.1; /* Adjust the value between 0 (completely transparent) and 1 (fully opaque) */
+  animation: burstCycle 10s linear 2;
+  animation-fill-mode: forwards;
+}
+
+
+@keyframes burstCycle {
+  0%, 39% {
+    transform: scale(1);
+    opacity: 1;
+    filter: brightness(1) saturate(1);
+  }
+  /* Burst phase: dramatically increase explosion size */
+  40% {
+    transform: scale(8);
+    opacity: 1;
+    filter: brightness(3) saturate(2);
+  }
+  50% {
+    transform: scale(12);
+    opacity: 0.9;
+    filter: brightness(3.5) saturate(2.5);
+  }
+  60% {
+    transform: scale(16);
+    opacity: 0.6;
+    filter: brightness(4) saturate(3);
+  }
+  70% {
+    transform: scale(20);
+    opacity: 0.3;
+    filter: brightness(4.5) saturate(3.5);
+  }
+  80% {
+    transform: scale(20);
+    opacity: 0;
+    filter: brightness(5) saturate(4);
+  }
+  81%, 100% {
+    transform: scale(1);
+    opacity: 1;
+    filter: brightness(1) saturate(1);
+  }
+}
+
+/* --- Updated Burst Text ("SAVE ME") Effect (3 bursts) --- */
+.burst-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: 'VT323', monospace;
+  font-size: 16px;
+  color: #ffffff;
+  z-index: 10;
+  animation: burstTextCycle 10s linear 3;
+  animation-fill-mode: forwards;
+}
+
+@keyframes burstTextCycle {
+  0%, 39% {
+    opacity: 0;
+  }
+  40%, 80% {
+    opacity: 1;
+  }
+  81%, 100% {
+    opacity: 0;
+  }
+}
+
+/* --- Explosion Particles (Weird Stone-like Elements) --- */
+.explosion-particles {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  pointer-events: none;
+  z-index: 15;
+}
+
+/* Each particle */
+.explosion-particles .particle {
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  background: #ff2200; /* Stone-like color */
+  border-radius: 50%;
+  opacity: 0;
+  animation: particleExplosion 10s linear 3;
+  animation-fill-mode: forwards;
+}
+
+/* Define custom trajectories and delays for each particle */
+.explosion-particles .p1 {
+  --tx: -100px;
+  --ty: -50px;
+  animation-delay: -0.1s;
+}
+.explosion-particles .p2 {
+  --tx: 80px;
+  --ty: -60px;
+  animation-delay: -0.2s;
+}
+.explosion-particles .p3 {
+  --tx: -90px;
+  --ty: 40px;
+  animation-delay: -0.15s;
+}
+.explosion-particles .p4 {
+  --tx: 100px;
+  --ty: 50px;
+  animation-delay: -0.25s;
+}
+.explosion-particles .p5 {
+  --tx: -50px;
+  --ty: 100px;
+  animation-delay: -0.05s;
+}
+.explosion-particles .p6 {
+  --tx: 60px;
+  --ty: 100px;
+  animation-delay: -0.3s;
+}
+
+@keyframes particleExplosion {
+  0%, 39% {
+    opacity: 0;
+    transform: translate(0, 0) rotate(0deg);
+  }
+  40% {
+    opacity: 1;
+    transform: translate(0, 0) rotate(0deg);
+  }
+  50% {
+    opacity: 1;
+    transform: translate(var(--tx), var(--ty)) rotate(360deg);
+  }
+  60% {
+    opacity: 0;
+    transform: translate(calc(var(--tx)*1.2), calc(var(--ty)*1.2)) rotate(720deg);
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+/* --- (Other CSS for chat window, icons, messages, inputs, etc. remains unchanged) --- */
+
+.chat-icon {
+  width: 40px;
+  height: 40px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  filter: drop-shadow(0 0 5px #ff0000);
+}
+
+.chat-pulse {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: rgba(255, 0, 0, 0.3);
+  animation: pulse-ring 2s infinite;
+}
+
+@keyframes pulse-ring {
+  0% {
+    transform: scale(0.7);
+    opacity: 0.3;
+  }
+  50% {
+    opacity: 0.1;
+  }
+  100% {
+    transform: scale(1.3);
+    opacity: 0;
+  }
+}
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 15px rgba(255, 0, 0, 0.7), 0 0 30px rgba(255, 0, 0, 0.4);
+  }
+  50% {
+    box-shadow: 0 0 25px rgba(255, 0, 0, 0.9), 0 0 40px rgba(255, 0, 0, 0.6);
+  }
+  100% {
+    box-shadow: 0 0 15px rgba(255, 0, 0, 0.7), 0 0 30px rgba(255, 0, 0, 0.4);
+  }
+}
+
+.chat-bot-window {
+  position: fixed;
+  bottom: 90px;
+  right: 20px;
+  width: 400px;
+  height: 570px;
+  background: linear-gradient(180deg, #1a001a, #3c003c);
+  border: 2px solid #ff0000;
+  border-radius: 16px;
+  box-shadow: 0 10px 40px rgba(255, 0, 0, 0.5);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  transform: translateY(100px);
+  opacity: 0;
+  transition: transform 0.5s ease, opacity 0.5s ease;
+  pointer-events: none;
+}
+
+.chat-bot-window.open {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: all;
+  animation: flicker-in 1s ease-out forwards;
+}
+
+@keyframes flicker-in {
+  0% {
+    opacity: 0.3;
+  }
+  10% {
+    opacity: 0.9;
+  }
+  20% {
+    opacity: 0.2;
+  }
+  30% {
+    opacity: 1;
+  }
+  40% {
+    opacity: 0.4;
+  }
+  50% {
+    opacity: 0.8;
+  }
+  60% {
+    opacity: 0.7;
+  }
+  70% {
+    opacity: 1;
+  }
+  80% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.chat-bot-header {
+  background: linear-gradient(90deg, #e50914, #8b0000);
+  padding: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 2px solid #960404;
+  position: relative;
+  overflow: hidden;
+}
+
+.chat-bot-header::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #ff0000, transparent);
+  animation: scan-line 2s linear infinite;
+}
+
+@keyframes scan-line {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+.chat-bot-header h2 {
+  margin: 0;
+  color: #ffffff;
+  font-family: 'Benguiat Bold', serif;
+  font-size: 24px;
+  text-shadow: 0 0 10px #ff0000, 0 0 20px #ff0000;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.close-button {
+  background: none;
+  border: none;
+  color: #ffffff;
+  font-size: 20px;
+  cursor: pointer;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  transition: background-color 0.3s;
+}
+
+.close-button:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.chat-bot-messages {
+  flex: 1;
+  padding: 15px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+.user, .bot {
+  max-width: 95%;
+  padding: 12px 16px;
+  text-align: left; 
+  border-radius: 12px;
+  position: relative;
+  animation: message-fade-in 0.3s ease-out forwards;
+  font-size: 16px;
+  line-height: 1.4;
+}
+
+@keyframes message-fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.user {
+  align-self: flex-end;
+  background: linear-gradient(135deg, #8b0000, #e50914);
+  color: #ffffff;
+  border: 1px solid #ff6b6b;
+  box-shadow: 0 2px 10px rgba(255, 0, 0, 0.3);
+  margin-left: 20%;
+}
+
+.user::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  right: -10px;
+  width: 20px;
+  height: 20px;
+  background: linear-gradient(135deg, transparent 50%, #e50914 50%);
+  transform: rotate(45deg);
+  border-radius: 0 0 5px 0;
+}
+
+.bot {
+  align-self: flex-start;
+  background: linear-gradient(135deg, #4b0082, #8b008b);
+  color: #ffffff;
+  border: 1px solid #9370db;
+  box-shadow: 0 2px 10px rgba(139, 0, 139, 0.3);
+  margin-right: 20%;
+}
+
+.bot::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: -10px;
+  width: 20px;
+  height: 20px;
+  background: linear-gradient(225deg, transparent 50%, #4b0082 50%);
+  transform: rotate(45deg);
+  border-radius: 0 0 0 5px;
+}
+
+.chat-bot-input {
+  display: flex;
+  padding: 15px;
+  background: rgba(0, 0, 0, 0.5);
+  border-top: 2px solid #ff0000;
+}
+
+.chat-bot-input input {
+  flex: 1;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid #ff0000;
+  border-radius: 20px;
+  padding: 12px 20px;
+  color: #ffffff;
+  font-family: 'VT323', monospace;
+  font-size: 18px;
+  outline: none;
+  transition: all 0.3s;
+}
+
+.chat-bot-input input::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.chat-bot-input input:focus {
+  background: rgba(255, 255, 255, 0.15);
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+}
+
+.send-button {
+  background: linear-gradient(135deg, #ff0000, #8b0000);
+  color: white;
+  border: 2px solid #ff0000;
+  border-radius: 20px;
+  padding: 12px 20px;
+  margin-left: 10px;
+  cursor: pointer;
+  transition: all 0.3s;
+  font-family: 'VT323', monospace;
+  font-size: 18px;
+}
+
+.send-button:hover {
+  background: linear-gradient(135deg, #8b0000, #ff0000);
+  transform: scale(1.05);
+}
+
+.bot-icon {
+  width: 50px;
+  height: 50px;
+  background: url('/path-to-your-bot-logo.png') no-repeat center center;
+  background-size: contain;
+  margin-right: 10px;
+  border-radius: 50%;
+  box-shadow: 0 0 10px rgba(255, 0, 0, 0.5);
+}
+
+.user-icon {
+  width: 50px;
+  height: 50px;
+  background: url('/path-to-your-user-logo.png') no-repeat center center;
+  background-size: contain;
+  margin-left: 10px;
+  border-radius: 50%;
+  box-shadow: 0 0 10px rgba(75, 0, 130, 0.5);
+}
+
+.user, .bot {
+  max-width: 300%;
+  padding: 14px 18px;
+  border-radius: 15px;
+  position: relative;
+  animation: glow-fade-in 0.4s ease-out forwards;
+  font-size: 16px;
+  line-height: 1.4;
+  color: white;
+  backdrop-filter: blur(5px);
+}
+
+.user {
+  align-self: flex-end;
+  background: linear-gradient(135deg, #d7003a, #ff5964);
+  box-shadow: 0 0 10px rgba(215, 0, 58, 0.5), 0 0 20px rgba(255, 89, 100, 0.3);
+}
+
+.bot {
+  align-self: flex-start;
+  background: linear-gradient(135deg, #3b0081, #8f00ff);
+  box-shadow: 0 0 10px rgba(59, 0, 129, 0.5), 0 0 20px rgba(143, 0, 255, 0.3);
+}
+
+@keyframes glow-fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+    box-shadow: none;
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
+  }
+}
+
+.chat-bot-messages {
+  flex: 1;
+  padding: 15px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  background: linear-gradient(180deg, #110011, #220022);
+  background-size: 200% 200%;
+  animation: flicker-bg 6s infinite alternate;
+}
+
+@keyframes flicker-bg {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 100% 50%;
+  }
+}
+
+.typing-indicator {
+  display: flex;
+  align-self: center;
+  padding: 10px 20px;
+  background: rgba(255, 0, 0, 0.4);
+  border-radius: 12px;
+  animation: typing-flicker 1.5s infinite;
+  font-family: 'Benguiat Bold', serif;
+  color: #ff0000;
+  letter-spacing: 2px;
+}
+
+.typing-indicator::before {
+  content: "...THE DEMOGORGON IS TYPING...";
+}
+
+@keyframes typing-flicker {
+  0%, 100% { opacity: 0.8; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.1); }
+}
+
+/* Icons Pulsating */
+.user-icon, .bot-icon {
+  animation: pulsate 3s infinite;
+}
+
+@keyframes pulsate {
+  0%, 100% { transform: scale(1); box-shadow: 0 0 10px rgba(255, 255, 255, 0.2); }
+  50% { transform: scale(1.1); box-shadow: 0 0 20px rgba(255, 255, 255, 0.4); }
+}
+
+
+.user {
+  align-self: flex-end;
+  background: linear-gradient(135deg, #d7003a, #ff5964);
+  box-shadow: 0 0 10px rgba(215, 0, 58, 0.5), 0 0 20px rgba(255, 89, 100, 0.3);
+  margin-left: 20%;
+  border-radius: 12px; 
+}
+
+.user::after {
+  display: none; 
+}
+
+.bot {
+  align-self: flex-start;
+  background: linear-gradient(135deg, #3b0081, #8f00ff);
+  box-shadow: 0 0 10px rgba(59, 0, 129, 0.5), 0 0 20px rgba(143, 0, 255, 0.3);
+  margin-right: 20%;
+  border-radius: 12px; /* Ensure smooth edges */
+}
+
+.bot::before {
+  display: none; /* Remove the tail */
+}
