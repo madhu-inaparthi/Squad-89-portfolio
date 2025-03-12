@@ -6,7 +6,7 @@ import Guides from './pages/Guides';
 import Party from './pages/Party';
 import ContactPage from './pages/contact-us';
 import LearnMore from './pages/LearnMore';
-import Projects from './pages/projects'; 
+import Projects from './pages/Projects'; 
 import Header from './components/Header';
 import Preloader from './components/Preloader';
 import './components/Preloader.css';
