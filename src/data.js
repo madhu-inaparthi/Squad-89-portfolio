@@ -101,7 +101,7 @@ export const mentors = [
           midDescription: "I am Samsani Sharini,  an aspiring B.Tech CSE (Software Product Engineering) student passionate about designing and developing software. My skills include Python programming, frontend development, software design, and UI/UX, enabling me to create innovative and user-friendly digital solutions."
       },
       {
-          name: "Rekhanshika",
+          name: "Rekhansika",
           role: "UI/UX Enthusiast",
           image: "https://ik.imagekit.io/gkzlyyyrg/Student%20photos/Students/r.jpg?updatedAt=1741600363350",
           github: "https://github.com/Rekhansika",
