@@ -108,11 +108,7 @@ const FloatingChatBot = () => {
         aria-label="Toggle Chat Bot"
       >
         <div className="planet-image">
-          <img
-            src="https://ik.imagekit.io/gkzlyyyrg/Student%20photos/Students/images/image.png?updatedAt=1741775374388"
-            alt="Jupiter Icon"
-            className="jupiter-image"
-          />
+      
         </div>
         <div className="explosion-particles">
           <span className="particle p1"></span>
