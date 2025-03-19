@@ -121,7 +121,7 @@ const FloatingChatBot = () => {
         <div className="chat-icon">
           <div className="chat-pulse"></div>
         </div>
-        <span className="burst-text"></span>
+        <span className="burst-text">Save Me</span>
       </button>
 
       {isOpen && (
