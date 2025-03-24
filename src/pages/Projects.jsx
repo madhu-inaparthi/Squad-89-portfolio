@@ -18,6 +18,12 @@ const Projects = () => {
       image: "https://ik.imagekit.io/gkzlyyyrg/Student%20photos/Students/images/WhatsApp%20Image%202025-03-11%20at%2010.29.35_c3cfee58.jpg?updatedAt=1741669635629", // Replace with your image path
       link: "https://travel-chat-bot-ir84.onrender.com/",
     }
+    {
+      title: "Be My Valentine",
+      description: "This project is designed to be an interactive webpage to ask someone to be your Valentine.  ",
+      image: "https://ik.imagekit.io/gkzlyyyrg/Student%20photos/Students/images/WhatsApp%20Image%202025-03-24%20at%2010.03.48_76019910.jpg?updatedAt=1742790863635", // Replace with your image path
+      link: "https://be-my-valentine-rose.vercel.app/",
+    }
   ]);
 
   const handleChange = (index, field, value) => {
