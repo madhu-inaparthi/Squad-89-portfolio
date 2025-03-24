@@ -17,7 +17,7 @@ const Projects = () => {
       description: "A cutting-edge university with state-of-the-art facilities, research, and community programs.",
       image: "https://ik.imagekit.io/gkzlyyyrg/Student%20photos/Students/images/WhatsApp%20Image%202025-03-11%20at%2010.29.35_c3cfee58.jpg?updatedAt=1741669635629", // Replace with your image path
       link: "https://travel-chat-bot-ir84.onrender.com/",
-    }
+    },
     {
       title: "Be My Valentine",
       description: "This project is designed to be an interactive webpage to ask someone to be your Valentine.  ",
